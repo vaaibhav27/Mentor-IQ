@@ -31,14 +31,14 @@ export default function SignupPage() {
           name: name || "Demo User",
           email,
           role,
-          onboarded: true
+          onboarded: false
         };
         
         localStorage.setItem("mockSession", JSON.stringify(mockSession));
         localStorage.setItem("mockProfile", JSON.stringify(mockProfile));
 
         toast.success("Account created successfully!");
-        navigate(`/dashboard/${role}`);
+        navigate('/onboarding');
       }, 1000);
       
     } catch (err: any) {

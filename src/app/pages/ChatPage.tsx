@@ -12,7 +12,8 @@ import {
   Target,
   Clock,
   ChevronLeft,
-  Loader2
+  Loader2,
+  MessageSquare
 } from "lucide-react";
 import { motion } from "motion/react";
 import { projectId } from "/utils/supabase/info";
