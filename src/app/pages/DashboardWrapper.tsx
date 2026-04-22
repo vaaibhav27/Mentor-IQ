@@ -34,7 +34,17 @@ export default function DashboardWrapper() {
       const mockProfile = localStorage.getItem("mockProfile");
 
       if (!mockSession || !mockProfile) {
-        navigate("/login");
+        // Create an automatic guest profile
+        const guestProfile = {
+          id: "guest-123",
+          name: "Guest Learner",
+          role: "learner",
+          onboarded: true,
+          email: "guest@mentoriq.dev"
+        };
+        localStorage.setItem("mockSession", "true");
+        localStorage.setItem("mockProfile", JSON.stringify(guestProfile));
+        setProfile(guestProfile);
         setLoading(false);
         return;
       }

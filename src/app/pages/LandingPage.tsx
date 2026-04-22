@@ -25,12 +25,12 @@ export default function LandingPage() {
         <div className="space-y-1 mb-8">
           <p className="px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Platform</p>
           {[
-            { icon: LayoutDashboard, label: "Home", active: true },
-            { icon: Compass, label: "Explore Mentors" },
-            { icon: Terminal, label: "Code Sessions" },
-            { icon: BarChart2, label: "Analytics" },
+            { icon: LayoutDashboard, label: "Home", active: true, path: "/dashboard/home" },
+            { icon: Compass, label: "Explore Mentors", path: "/dashboard/marketplace" },
+            { icon: Terminal, label: "Code Sessions", path: "/dashboard/workspace" },
+            { icon: BarChart2, label: "Analytics", path: "/dashboard/home" },
           ].map((item, i) => (
-            <Link to="/login" key={i} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${item.active ? 'bg-slate-800/80 text-orange-400 font-medium' : 'text-slate-400 hover:bg-slate-800/40 hover:text-slate-200'}`}>
+            <Link to={item.path} key={i} className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${item.active ? 'bg-slate-800/80 text-orange-400 font-medium' : 'text-slate-400 hover:bg-slate-800/40 hover:text-slate-200'}`}>
               <item.icon className="w-4 h-4" />
               <span className="text-sm">{item.label}</span>
             </Link>
@@ -40,11 +40,11 @@ export default function LandingPage() {
         <div className="space-y-1 mb-auto">
           <p className="px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Learning</p>
           {[
-            { icon: BookOpen, label: "Study Sheets" },
-            { icon: Code2, label: "Algorithms" },
-            { icon: Trophy, label: "Achievements" },
+            { icon: BookOpen, label: "Study Sheets", path: "/dashboard/home" },
+            { icon: Code2, label: "Algorithms", path: "/dashboard/home" },
+            { icon: Trophy, label: "Achievements", path: "/dashboard/home" },
           ].map((item, i) => (
-            <Link to="/signup" key={i} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/40 hover:text-slate-200 transition-colors">
+            <Link to={item.path} key={i} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/40 hover:text-slate-200 transition-colors">
               <item.icon className="w-4 h-4" />
               <span className="text-sm">{item.label}</span>
             </Link>
@@ -52,11 +52,11 @@ export default function LandingPage() {
         </div>
 
         <div className="space-y-1 pt-4 border-t border-slate-800/60">
-          <Link to="/login" className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-colors">
+          <Link to="/dashboard/home" className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-colors">
             <HelpCircle className="w-4 h-4" />
             <span className="text-sm">Help & Support</span>
           </Link>
-          <Link to="/login" className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-colors">
+          <Link to="/dashboard/home" className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white transition-colors">
             <Settings className="w-4 h-4" />
             <span className="text-sm">Settings</span>
           </Link>
@@ -80,7 +80,7 @@ export default function LandingPage() {
                 type="text" 
                 placeholder="Search mentors, algorithms, study sheets... (Press '/')"
                 className="w-full bg-[#161B22]/80 border border-slate-700/60 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500/50 transition-all shadow-inner cursor-text"
-                onClick={() => { window.location.href = '/login' }}
+                onClick={() => { window.location.href = '/dashboard/home' }}
               />
               <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                 <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-medium bg-slate-800 text-slate-400 rounded border border-slate-700">Cmd K</kbd>
@@ -126,7 +126,7 @@ export default function LandingPage() {
             </p>
 
             <div className="flex items-center justify-center gap-4">
-              <Link to="/signup" className="px-8 py-3.5 bg-orange-600 hover:bg-orange-500 text-white font-medium rounded-lg transition-all shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_30px_rgba(234,88,12,0.5)] transform hover:-translate-y-0.5">
+              <Link to="/dashboard/home" className="px-8 py-3.5 bg-orange-600 hover:bg-orange-500 text-white font-medium rounded-lg transition-all shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_30px_rgba(234,88,12,0.5)] transform hover:-translate-y-0.5">
                 Start Learning Now
               </Link>
               <button 
